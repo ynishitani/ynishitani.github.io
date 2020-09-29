@@ -7,11 +7,26 @@
   margin-left: -25%;
   top: 40px;
 }
+@media (max-width: 670px) {
+  .geocoder {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 50%;
+    margin-left: -25%;
+    top: 40px;
+  }
+}
 .mapboxgl-ctrl-geocoder {
   min-width: 100%;
 }
 input.mapboxgl-ctrl-geocoder--input {
-  font-size: 18px; 
+  font-size: 25px;
+}
+@media screen and (min-width: 640px)
+.mapboxgl-ctrl-geocoder--input {
+    height: 60px;
+    padding: 6px 35px;
 }
 /*緯度経度情報ウインドウ*/
 .coordinates {
