@@ -7,16 +7,9 @@
   margin-left: -25%;
   top: 40px;
 }
-@media (max-width:670px) {
-  .geocoder {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    top: 20px;
-  }
-}
 .mapboxgl-ctrl-geocoder {
   min-width: 100%;
+  font-size: 16px;
 }
 /*緯度経度情報ウインドウ*/
 .coordinates {
@@ -32,7 +25,7 @@
   border-radius: 3px;
   display: none;
 }
-/*ポップアップウインドウ*/
+/*ポップアップ*/
 .mapboxgl-popup-content{
   background-color: #24AB9B;
   text-align: center;
