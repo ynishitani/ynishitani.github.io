@@ -82,20 +82,6 @@
   }
   printLngLat(marker);
 
-  //クリック時にマーカーの位置を変更する
-  map.on('click', function(e) {
-    marker.setLngLat(e.lngLat);
-    printLngLat(marker);
-    //以下デバッグ用
-    //console.log('A click event has occurred at ' + e.lngLat);
-  });
-
-  //ドラッグ時にマーカーの位置を変更する
-  marker.on('dragend', function(e){
-    printLngLat(marker);
-    //以下デバッグ用
-    //console.log('A drag event has occurred at ' + marker.getLngLat());
-  });
   </script>
 
 </body>

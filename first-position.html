@@ -64,14 +64,14 @@
     closeButton: false
   })
   .setLngLat([139.7690, 35.6804])
-  .setHTML('<a class="setPosition" href="./second.html">この位置を設定</a>');
+  .setHTML('<a class="setPosition" href="./second.html">この位置を設定</a>')
+  .addTo(map);
 
   var marker = new mapboxgl.Marker({
     draggable: true,
     color: "#4BB9EC"
   })
   .setLngLat([139.7690, 35.6804])
-  .setPopup(popup)
   .addTo(map);
 
   //指定位置を左下に表示
@@ -85,6 +85,7 @@
   //クリック時にマーカーの位置を変更する
   map.on('click', function(e) {
     marker.setLngLat(e.lngLat);
+    popup.setLngLat(e.lngLat);
     printLngLat(marker);
     //以下デバッグ用
     //console.log('A click event has occurred at ' + e.lngLat);
@@ -93,6 +94,8 @@
   //ドラッグ時にマーカーの位置を変更する
   marker.on('dragend', function(e){
     printLngLat(marker);
+    var lngLat = marker.getLngLat();
+    popup.setLngLat([lngLat.lng, lngLat.lat]);
     //以下デバッグ用
     //console.log('A drag event has occurred at ' + marker.getLngLat());
   });
