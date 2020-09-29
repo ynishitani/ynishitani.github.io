@@ -1,0 +1,122 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: -moz-linear-gradient(top, #56DCFA, #56FFF5);
+  background: -webkit-linear-gradient(top, #56DCFA, #56FFF5);
+  background: linear-gradient(to bottom, #56DCFA, #56FFF5);
+  /*
+  font-family: "Hiragino Kaku Gothic ProN";
+  */
+  font-family: -apple-system, blinkMacSystemFont, /* Macの欧文はSan Francisco (OS X 10.11以降) */
+             'Helvetica Neue', /* Macの欧文 (OS X 10.10以前) */
+             'Segoe UI',       /* Windowsの欧文 */
+             YuGothicM,        /* Windows8.1以上は游ゴシック */
+             YuGothic,         /* Macの游ゴシック */
+             Meiryo,           /* 游ゴシックが入っていないWindows */
+             sans-serif;
+}
+
+.top-wrapper {
+  display: block;
+  height: 100vh;
+  width:640px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 50px;
+}
+.text-wrapper {
+  margin-top:20px;
+  margin-bottom:20px;
+}
+.numberOfPeople {
+  display: inline-block;
+  color: white;
+}
+.large {
+  font-size: 50px;
+  font-weight: bold;
+}
+.small {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.icon-wrapper {
+  margin-top:50px;
+  margin-bottom:50px;
+}
+
+.icon-wrapper > .fas{
+  font-size:200px;
+}
+
+.user-container > .circle > .fas{
+  font-size:50px;
+  line-height: 160%;
+}
+
+.first-icon {
+  /*人のアイコン*/
+  color: #4BB9EC;
+}
+
+.second-icon {
+  /*人のアイコン*/
+  color: #DD0030;
+}
+
+.setPosition-wrapper {
+  margin-top:70px;
+  margin-bottom:70px;
+}
+
+.direction {
+  /*「位置を選択してください」の文章*/
+  font-size: 20px;
+  color: #666666;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  padding: 8px 24px;
+  font-size: 20px;
+  color: white;
+  background-color: #24AB9B;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius:4px;
+  box-shadow: 3px 3px #777978;
+}
+
+.button:hover {
+  opacity:1;
+}
+
+.result-wrapper .button {
+  background-color: #FFFFFF;
+  color: #009F8C;
+}
+
+.user-container {
+  display: inline-block;
+  width:33%;
+}
+
+.user {
+  color:white;
+}
+
+.circle {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+
+.result-wrapper {
+  margin-top: 200px;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>1人目の位置情報の設定 - Chukanchi</title>
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+  <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+  <!--ジオコーダー(住所検索)用-->
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+
+  <!--CSS for MapBox-->
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' />
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
+  <!--CSS for this page-->
+  <link rel="stylesheet" href="css/map.css" type="text/css"/>
+</head>
+<body>
+  <!--画面描画-->
+  <div id="map" style="width:100%; height:100vh;"></div>
+  <div id="geocoder" class="geocoder"></div>
+  <pre id="coordinates" class="coordinates"></pre>
+
+  <script>
+  //アクセストークン設定
+  mapboxgl.accessToken = 'pk.eyJ1IjoibmlzaGl0YW5peXVzdWtlIiwiYSI6ImNrZmticDMwcTB2ZXIyc2xiOTF2bWQ3a3AifQ.IpUEkCBNjnZARrzrX-qqTw';
+
+  //マップ初期設定
+  var map = new mapboxgl.Map({
+    container: 'map', //HTML Container ID
+    center: [139.7690, 35.6804], // starting position [lng, lat]
+    zoom: 13, // starting zoom
+    style: 'mapbox://styles/nishitaniyusuke/ckfl0zoot44ig19qie8grzjib'
+    /* 以下、その他スタイルの指定例
+    style: 'mapbox://styles/nishitaniyusuke/ckfl0zoot44ig19qie8grzjib'
+    style: 'mapbox://styles/mapbox/light-v10',
+    style: 'mapbox://styles/mapbox/dark-v10',
+    */
+  });
+
+  //ズームコントールを右下に表示
+  var nav = new mapboxgl.NavigationControl({
+    showCompass:false //地図回転用のコンパスマークは表示させない
+  });
+  map.addControl(nav, 'bottom-right');
+
+  //ジオコーダー初期設定
+  var geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl,
+    language:'ja-JP',
+    placeholder: "地名検索",
+    marker: {
+      color:"#00000000"
+    }
+  });
+  document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+  //初期の指定位置
+  var popup = new mapboxgl.Popup({
+    offset: 25,
+    closeOnClick: false,
+    closeButton: false
+  })
+  .setLngLat([139.7690, 35.6804])
+  .setHTML('<a class="setPosition" href="./second.html">この位置を設定</a>');
+
+  var marker = new mapboxgl.Marker({
+    draggable: true,
+    color: "#4BB9EC"
+  })
+  .setLngLat([139.7690, 35.6804])
+  .setPopup(popup)
+  .addTo(map);
+
+  //指定位置を左下に表示
+  function printLngLat(marker){
+    var lngLat = marker.getLngLat();
+    coordinates.style.display = 'block';
+    coordinates.innerHTML = '経度: ' + lngLat.lng + '<br />緯度: ' + lngLat.lat;
+  }
+  printLngLat(marker);
+
+  //クリック時にマーカーの位置を変更する
+  map.on('click', function(e) {
+    marker.setLngLat(e.lngLat);
+    printLngLat(marker);
+    //以下デバッグ用
+    //console.log('A click event has occurred at ' + e.lngLat);
+  });
+
+  //ドラッグ時にマーカーの位置を変更する
+  marker.on('dragend', function(e){
+    printLngLat(marker);
+    //以下デバッグ用
+    //console.log('A drag event has occurred at ' + marker.getLngLat());
+  });
+  </script>
+
+</body>
+</html>

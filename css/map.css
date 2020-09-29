@@ -1,0 +1,38 @@
+/*検索窓*/
+.geocoder {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  left: 50%;
+  margin-left: -25%;
+  top: 40px;
+}
+.mapboxgl-ctrl-geocoder {
+  min-width: 100%;
+}
+/*緯度経度情報ウインドウ*/
+.coordinates {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  padding: 5px 10px;
+  margin: 0;
+  font-size: 11px;
+  line-height: 18px;
+  border-radius: 3px;
+  display: none;
+}
+/*ポップアップウインドウ*/
+.mapboxgl-popup-content{
+  background-color: #24AB9B;
+  text-align: center;
+  line-height:20px;
+}
+.mapboxgl-popup-content > a{
+  text-decoration: none;
+  color: white;
+  display: block;
+  height: 100%;
+}
