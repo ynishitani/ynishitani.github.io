@@ -8,7 +8,7 @@
   top: 40px;
 }
 .mapboxgl-ctrl-geocoder {
-  min-width: 100%;
+  min-width: 80%;
   font-size: 18px;
 }
 /*緯度経度情報ウインドウ*/
