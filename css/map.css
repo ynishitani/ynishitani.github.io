@@ -1,15 +1,31 @@
 /*検索窓*/
-.geocoder {
+#geocoder {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  max-width: 80%;
+  left: 0px;
+  top: 0px;
+  min-width:80%;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  /*
   position: absolute;
   z-index: 1;
   width: 50%;
   left: 50%;
   margin-left: -25%;
   top: 40px;
+  */
 }
 .mapboxgl-ctrl-geocoder {
-  min-width: 80%;
-  font-size: 18px;
+  min-width: 100%;
+  font-size: 16px;
+}
+input.mapboxgl-ctrl-geocoder--input{
+  margin: 0 auto;
 }
 /*緯度経度情報ウインドウ*/
 .coordinates {
