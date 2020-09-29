@@ -10,6 +10,9 @@
 .mapboxgl-ctrl-geocoder {
   min-width: 100%;
 }
+input.mapboxgl-ctrl-geocoder--input {
+  font-size: 18px; 
+}
 /*緯度経度情報ウインドウ*/
 .coordinates {
   background: rgba(0, 0, 0, 0.5);
